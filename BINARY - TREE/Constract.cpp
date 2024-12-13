@@ -55,17 +55,33 @@ Node* Create(vector<int> &v){
 void LevOrder(Node* root){     // Breadth First Search
     queue<Node*> q;
     q.push(root);
-    while(q.size()>0){
-        Node* temp = q.front();
-        q.pop();
-        cout<<temp->val<<" -> ";
-        if(temp->left!=NULL){
-            q.push(temp->left);
+    while(!q.empty()){
+        int n = q.size();
+        //Node* temp = q.front;
+        for(int i=0;i<n;i++){
+            Node* temp = q.front();
+            q.pop();
+            cout<<temp->val<<" -> ";
+            if(temp->left!=NULL){
+                q.push(temp->left);
+            }
+            if(temp->right!=NULL){
+                q.push(temp->right);
+            }
         }
-        if(temp->right!=NULL){
-            q.push(temp->right);
-        }
+        cout<<endl;
     }
+    // while(q.size()>0){
+    //     Node* temp = q.front();
+    //     q.pop();
+    //     cout<<temp->val<<" -> ";
+    //     if(temp->left!=NULL){
+    //         q.push(temp->left);
+    //     }
+    //     if(temp->right!=NULL){
+    //         q.push(temp->right);
+    //     }
+    // }
     cout<<endl;
 }
 int main(){
